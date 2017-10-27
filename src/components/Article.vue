@@ -1,28 +1,28 @@
 <template>
-    <article class="arcticle">
+    <article v-if="article" class="arcticle">
         <figure class="article__figure">
-            <img class="article_img" :src="'http://lorempicsum.com/futurama/900/200/' + article.id" :alt="article.title">
+            <img class="article__img" :src="'http://lorempicsum.com/futurama/900/200/' + article.id" :alt="article.title">
         </figure>
         <h1 class="article__header article__header_main">{{ article.title }}</h1>
         <p class="article__text">
             {{ article.text }}
         </p>
     </article>
+    <div v-else>
+        <h1>Article not found</h1>
+    </div>
 </template>
 <script>
 export default {
-    created() {
-        this.$store.dispatch("fetchTiles")
-    },
     computed: {
         article() {
-            return this.$store.getters.getTilesById(this.$route.params.id)[0]
-        }
+            return this.$store.getters.getTilesById(parseInt(this.$route.params.id))[0]
+        },
     }
 }
 </script>
 <style>
-.article_img {
+.article__img {
     max-width: 100%;
     max-height: 100%;
 }

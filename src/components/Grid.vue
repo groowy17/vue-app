@@ -1,7 +1,7 @@
 <template>
 <div class="grid">
-    <div v-for="item in tiles" class="grid__item" :class="'grid__item_' + item.type">
-        <router-link :to="{ name: 'article', params: { id: item.id } }" :id="item.id" class="grid__link">
+    <div v-bind:key="item.id" v-for="item in tiles" class="grid__item" :class="'grid__item_' + item.type">
+        <router-link :to="{ name: 'article', params: { id: item.id } }" class="grid__link">
             <div class="grid__img" :style="{ backgroundImage: 'url(http://lorempicsum.com/futurama/900/450/'+ item.id + ')' }"></div>
             <div class="grid__title">{{ item.title }}</div>
             <div class="grid__description">{{ item.description }}</div>    
