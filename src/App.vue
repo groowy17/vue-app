@@ -1,27 +1,23 @@
 <template>
-<div class="app-layout">
-    <header class="header">
-        <div class="container">
-            <nav class="header__nav">
-                <ul class="menu">
-                    <li class="menu__item">
-                        <router-link to="/" class="menu__link">Home</router-link>
-                    </li>
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">About</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="#" class="menu__link">What ever</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+<div class="app">
+    <header class="app__header header">
+        <nav class="header__nav nav container">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <router-link to="/" class="nav__link">Home</router-link>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">What ever</a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
-        <section class="main">
-            <router-view></router-view>
-        </section>
-    </div>   
+    <div class="app__content content container">
+        <router-view></router-view>
+    </div>
 </div>
 </template>
 <script>
@@ -49,7 +45,7 @@ body {
     margin: 0 auto; 
 }
 
-.main {
+.content {
     padding-bottom: 30px;
 }
 
@@ -64,30 +60,28 @@ body {
     padding: 0 20px;
 }
 
-.menu {
+.nav__list {
     list-style: none;
     display: flex;
     justify-content: flex-start; 
 }
 
-.menu__item {
+.nav__item {
     margin-right: 20px; 
 }
 
-.menu__item:last-child {
+.nav__item:last-child {
     margin-right: 0; 
 }
 
-.menu__link {
+.nav__link {
     color: white;
     transition: text-decoration .3s linear; 
 }
 
-.menu__link:hover, .menu__link:active {
+.nav__link:hover, 
+.nav__link:active,
+.nav__link.router-link-active {
     text-decoration: none; 
-}
-
-.menu__link.router-link-active {
-    text-decoration: none;
 }
 </style>

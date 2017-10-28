@@ -3,13 +3,13 @@
         <figure class="article__figure">
             <img class="article__img" :src="'http://lorempicsum.com/futurama/900/200/' + article.id" :alt="article.title">
         </figure>
-        <h1 class="article__header article__header_main">{{ article.title }}</h1>
+        <h1 class="article__header">{{ article.title }}</h1>
         <p class="article__text">
             {{ article.text }}
         </p>
     </article>
-    <div v-else>
-        <h1>Article not found</h1>
+    <div v-else class="not-found">
+        <h1 class="not-found__header">Article not found</h1>
     </div>
 </template>
 <script>
@@ -22,6 +22,10 @@ export default {
 }
 </script>
 <style>
+.arcticle {
+    padding: 0 20px;
+}
+
 .article__img {
     max-width: 100%;
     max-height: 100%;
@@ -35,7 +39,14 @@ export default {
 
 .article__text {
     line-height: 1.5rem;
+}
+
+.not-found {
     padding: 0 20px;
+}
+
+.not-found__header {
+    text-align: center;
 }
 </style>
 
